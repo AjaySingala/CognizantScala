@@ -1,0 +1,598 @@
+Day #1:
+Scala:
+	Scalable Language
+	Prof. Martin Odersky and team in 2003
+	high-performance, concurrent-ready, functional programming, is OO.
+	runs on the JVM.
+	
+Scala is OO:
+	every value in Scala is basically an object.
+	Classes are extended by subclassing.
+	
+Scala is functional:
+	every function is a value.
+	function is also an object (because every value is an object).
+	you can pass a function as a parameter to another function.
+	you can return a function from another function.
+		Higher-order functions.
+		Pure/impure functions.
+		Anonymous functions (lambda)
+Scala on the JVM
+Provides concurrency features
+Async processing (Futures)
+Immutability
+	immutable : like constants.
+	the state of variables cannot be changed.
+	can create new objects, but you cannot modify them (change thier state) once created.
+	
+Pure Functions:
+	2 properties:
+		1. It always returns the same value for the same inputs.
+		2. It has no side effects. The function does not interact with  the state of the program outside of the function itself.
+			should not modify any variable that is not part of the function.
+			
+Functions are First-Class Citizens:
+	can be assigned to a variable.
+	passed as an argument to other functions.
+	returned as a value from other functions.
+	
+Higher-order Function (HOF):
+	1. Takes one or more functions as parameters.
+	2. Returns a function as a result.
+	
+def calcAnything(number: Int, calcFunction: Int => Int): Int => calcFunction(number)
+
+def calcSquare(num: Int): Int => num * num
+
+def calcCube(num: Int): Int => num * num * num
+
+val sqCalc = calcAnything(2, calcSquare)
+// Returns 4
+val cubeCalc = calcAnything(3, calcCube)
+// Return 27
+
+Concepts of Functional Programming:
+	Pure functions
+	Firt-class functions
+	Higher-order functions
+	Recursive
+	Variables are immutable
+	
+fib(n)
+	if(n <= 1)
+		return 1;
+	else
+		return fib(n-1) + fib(n-2)
+		
+	fib(13)
+	
+SBT: Scala Build Tool
+	creating Scala project
+	compiling
+	running
+	packaging
+
+.scala
+
+c:\Scalac filename.scala
+Converts into byte code (java)
+c:\Scala filename
+
+Scala program, entry point the method main()
+compile
+run
+
+Interactive Mode:
+	REPL Environment of Scala:
+		REPL: Read-Evaluate-print-Loop
+		Interactive environment.
+Script mode:
+	IDE - Visual Studio Code
+
+Steps to create new SBT project:
+Make sure you are in the right folder.
+Run:
+	sbt new sbt/scala-seed.g8
+	OR
+	sbt new scala/scala-seed.g8
+Give a project name
+cd <projectname>
+sbt
+compile
+run
+
+Scala Variables, Values and Types:
+	Literal: 6, "Hello there"
+	Value: stored in a typed storage unit.
+	Variables: store values in variables, assign data to a variable.
+		var age = 10
+	Boolean
+	Int
+	String
+	Float
+	Double
+	Byte
+	Short
+	
+	some advanced data types:
+		Unit: Corresponds to no value (void).
+		Null: null or empty reference.
+		Nothing: subtype of every other type. Includes no value.
+		Any: Supertype of any other type. Any type is of type Any.
+		
+Object Oriented Scala:
+	Objects
+	Classes
+	Methods
+	Fields
+	Trait
+	
+Class is like a template. It does not exist in "real terms".
+What exists in real life, is an "object". Object is a run-time instance of a class.
+we can have many objects for a class.
+My car is a BMW (is of type BMW)
+BMW is a Car.
+	Both are classes.
+	Defining the relationship between them.
+	"is a" relationship.
+	Car is the parent of BMW.
+	BMW extend (inherit from) Car.
+	
+Methods:
+	A subclass can override the behavior of the parent/super class.
+	Polymorphism: many forms.
+	Inheritance
+	
+Coding conventions:
+	Scala is case-sensitive: foo, Foo FOO, fOO
+	Class names: first character in upper case. Customer, Person, Order, OrderDetails
+	Method names: first char of method name in lower case. getCustomerById()
+	Program file name: name should be same as the object defined in the file.
+	Comments: //
+	
+Identifiers:
+var age = 20
+val age = 20
+Valid: age, salary, _value, first_name
+Illegal: $salary, 123abc, -salary, blank space
+
+Scala keywords:
+def
+object
+class
+package
+abstract
+trait
+do
+while
+if
+else
+extends
+try
+finally
+for
+override
+private
+protected
+throw
+val
+var
+true
+false
+with	
+final
+yield
+=> (lambda, anonymous function)
+
+var: will allow you to modify the value of the variable.
+val: will not allow to modify the value of the variable.
+
+val variable_name : DataType = initial value
+val age: Int = 20
+val age = 20
+
++ - / *
+> >= < <= 
+
+Variable Scope:
+	3 variable scopes:
+		Fields:
+			they belong to an object.
+			are accessible from all the methods within that object.
+			both val or var
+		Method Parameters
+			are variables that are passed as parameters to methods.
+			are accessible from inside the method.
+		Local variables
+			are defined / declared inside a method.
+			are accessible only within the method where it has been defined.
+			
+Lazy Loading:
+	lazy val variable_name = value
+	
+= and == are different
+= is for assignment
+== is for comparison
+!= to negate a comparison
+\t is a tab within a string
+\n is new line
+Interpolation using "s" and "${variable_name}"
+
+Multiple assignment:
+val (age: Int, name: String) = (20, "Ajay")
+
+Expressions, Statements and Conditionals
+Expression: a single unit of code returns a value
+Expression Blocks: multiple expressions on a single line. OR enclosing multiple expressions between {}.
+
+Statements: an expression that does not return a value
+val x = 1
+Statement block: is similar to an expression block, but does not return a value.
+
+Conditional:
+if-else
+syntax: if (boolean expression) <expression>
+syntax: if (boolean expression) {
+			<expression>
+			:
+		}
+
+syntax: 
+if (boolean expression) 
+	<expression>
+else
+	<expression>
+
+if-else-if:	
+if (boolean expression) 
+	<expression>
+else if(boolean expression)
+	<expression>
+else if(boolean expression)
+	<expression>
+else
+	<expression>
+
+switch-case
+switch(variable) {
+   case value1: 
+	:
+   case value2: 
+	:
+}
+
+Match Expressions:
+<expression> match {
+	case <pattern_match1> => <expression>
+	case <pattern_match2> => <expression>
+	case <pattern_match2> => <expression>
+	_ => <expression>
+}
+
+"_" is a wildcard.
+
+Loops:
+	expression-based control structure.
+	executing some statements / expessions repeatedly, till a specific condition is satisfied.
+	
+	for loop.
+	for(x <- 1 to 7) {
+		println(s"The number is ${x}")
+	}
+	
+	Iterator guards (filters):
+	val threes = for(x <- 1 to 20 if x % 3 == 0) {
+		yield x
+	}
+
+	Alternative (traditional way) to "yield":
+	-define an array / list outside of the for loop
+	-start the loop
+	-check the condition
+	-if true, add for counter to array / list
+	-at the end, return the array / list.
+	
+	Step in for loops: to and until is, when we use until, the condition is <. When we use 10, the condition is <=.
+	for( x <- 0 to 10 by 2)
+	for( x <- 0 until 10 by 2)
+	
+	Nested iterators:
+		for(var x = 0 to 10) {
+			for(var y = 1 to 9) {
+				print(x, y)
+			}
+		}
+	
+	scala> for { x <- 1 to 2
+     |    y <- 1 to 3 } { print(x,y) }
+	 
+	null or ""
+	
+	val quote = "Faith,Hope,,Charity"
+	for { q <- quote.split(",") if q != null if q.size > 0 } { println(q) }
+	
+while / Do-While Loops:
+	while(condition) {
+		statements
+		:
+	}
+	
+	var x = 0
+	while( x <= 10000){
+		println(x)
+		if(x == 500)
+			exit out of the loop!
+		x = x + 1	// OR x += 1
+	}
+	
+	Does not support ++ and -- for increment / decrement.
+	
+	do {
+		statements
+	} while(condition)
+	
+	how to break out of a loop.
+	
+Day #2:
+OOP: Classes and Objects.
+Objects run time instances of classes.
+More than one instance (objects) of a class.
+Classes are templates that define these objects.
+Classes can have both, state and behavior.
+	State: fields (properties, attributes).
+	Behavior: methods (functions).
+	Class: Animal
+	State: Legs
+	Behavior: Sound
+	
+	Class: Shape
+	State: Length, Width
+	Behavior: Draw, GetArea
+	
+class Rectangle(l: Int, b: Int) {
+	val length: Int = 1
+	val breadth: Int = b
+	
+	def getArea: Int = l * b
+	
+}
+
+Scala Trait:
+Is like an interface.
+Can have partial implementation.
+A collection of abstract and non-abstract methods.
+Can have all abstract methods or some abstract methods & some non-abstract methods.
+Very similar to Java interfaces.
+You cannot instantiate a trait.
+
+Packages:
+A Way of organizing your code / classes / object / traits based on modules.
+ecommerce
+	customers
+	orders
+	products
+	
+package ecommerce.customers
+	Include all code files specific to customer data / information / processes.
+package ecommerce.orders
+	Include all code files specific to orders data / information / processes.
+package ecommerce.customers
+	Include all code files specific to products data / information / processes.
+	
+In Scala, you cannot have multiple inheritance with multiple abstract classes.
+
+Classes have constructors (ctors)
+	Are called whenever an instance is created of a class.
+	All classes have a default ctor, which is without any parameters.
+	
+Singleton Objects:
+	A Singleton is kind of a class that can only be instantiated once!
+	Defined in Scala is by using the "object" keyword.
+	Singleton Pattern.
+	
+Access modifiers:
+	In scala, all properties / methods in a class are public.
+	public: accessible (via the class' instance) from any other object/class/trait.
+	private: accessible only within the class where it has been defined.
+	protected: accessible from the class where it has been defined, or subclasses.
+	
+Defining a class with Input Parameters and Default Values:
+you cannot have non-default value parameters after a default value parameter.
+All default value parameters must be specified at the end of the pararm list.
+You can access parameters by their name: Named Parameters.
+If named params are used, the order of the params does not matter.
+
+Class types:
+	classes
+	singletons (object)
+	traits
+	abstract classes
+	anonymous classes
+	case classes
+	final
+	sealed
+	
+Anonymous Classes:
+	To define a one-time class, instantiating a parent (super/base) class, which will probably be an abstract class and the impelemntation is provided within curly braces.
+	
+Case Classes:
+	Are like regular classes with some key differences.
+	Immutable by default.
+	case class class_name (param1, param2, ...)
+	Do not use "new" to instantiate a case class.
+	Have an "apply()" method that takes care of instantiating without "new".
+	
+Overloaded methods:
+	Same method name, but with different signature (return type is not part of the signature).
+	Add(a: Int, b: Int)
+	Add(a: Float, b: Float)
+	Add(a: Int, b: Int, c: Int)
+	Add(a: Int, b: Float)
+
+	Add(1,1)
+	Add(10.5,11.5)
+	Add(1,1, 10)
+	Add(1, 20.25)
+	
+final keyword:
+	used to impose restrictions on a superclass / parent, variables (fields), methods.
+	final variable can be initialized only once.
+	
+sealed keyword:
+	Declaring a class as "sealed" restricts where it can be defined for its subclasses - to be defined in the same source file.
+	Both, the sealed class and the subclass have to be in the same source file.
+	
+Tuples:
+A tuple is an ordered container (collection) of two or more values.
+All of these values could be of differnt types.
+Tuples are immutable.
+Syntax:
+val var_name = (5, "Ajay", 22, 33, "Hello there")
+
+To create name-value pair in a tuple: "red" -> "0xff0000"
+
+Ex.1:
+swap function
+ 1 2
+ 2 1 
+
+a = 1
+b = 2
+
+Before:
+println(a, b) ===> 1, 2
+SWAP
+After:
+println(a, b) ===> 2, 1
+
+Ex.2:
+Create a class hierarhcy of shapes.
+Rectangle is a kind of square
+Ellipsis is a kind of circle
+draw() 
+
+Day #3:
+Gen-Spec structure
+	At the top, you have generic classes defined.
+	As you move down the hierarhcy, you have more specific classes defined.
+	
+	
+Invoking functions with Expression blocks.
+Functions with Variable Arguments.
+	for e.g.; someProgram.exe Ajay Singala 2000
+	args(0) = Ajay
+	args(1) = Singala
+	args(2) = 2000
+	
+	someProgram.exe Ajay Singala
+	someProgram.exe Ajay
+	
+Recursive functions:
+	one that may invoke itself, preferably with a parameter or have some external condition that will avoid an infinite loop.
+	Must avoid the dreaded "Stack Overflow" error!!!
+	
+Nested functions:
+Functions are named, parameterized expression blocks, and they are also nestable.
+
+Calling functions with named parameters.
+Parameters with Default Values.
+
+Any
+	Int
+	Float
+	Double
+	Boolean
+    AnyRef
+		Array
+		Class
+		List
+		Set
+
+Anonymous functions:
+	aka Function Literals.
+	a function that has no name, only has a body.
+	It can have parameters and return types.
+
+Closures:
+	A closue is like any other function.
+	It could be a named function or an anonymous function.
+	I can be pure or impure.
+	Free Variables: a variable that is used in the function, but is neither a local variable in that function nor a formal parameter to that function.
+	The only diff b/w a function and a closure is that a clpsure uses one or more FREE VARIABLES!
+	
+Currying Functions:
+	Trasnforms a function that takes multiple parameters into a chain of functions, each funtion takes a single param.
+	Each function returns another function that takes the subsequent param / argument.
+	result = f(x)(y)(z)
+
+Placeholder Syntax for functions:
+	replace named parameters with the wildcard operator, underscore (_).
+	Can be used when: the param is used only once.
+	
+Boolean comparison operator for AND: & and &&. for OR: | and || .
+T & T => T
+T & F => F
+F & T => F
+F & F => F
+
+C1 & C2 & C3 & C4
+C1 && C2 && C3 && C4		// Short circuit.
+
+T | T => T
+T | F => T
+F | T => T
+F | F => F
+
+C1 | C2 | C3 | C4
+C1 || C2 || C3 || C4		// Short circuit.
+
+C1 && C2 || C3
+C1 || C2 && C3
+Order of Precedence: FIRST Parenthesis, then the AND, then the OR
+
+(C1 || C2) && C3
+
+* / + -
+
+Types of Inheritance in Scala:
+Single Inheritance:
+
+Just like any modern OO language, Scala does not support multiple inheritance.
+You can achieve it using "traits".
+
+trait T1 {
+	def foo()
+}
+
+trait T2 {
+	def bar()
+}
+
+class ClassA extends T1 with T2 {
+	def foo() {
+		print("foo")
+	}
+	
+	def bar() {
+		print("bar")
+	}
+}
+
+I/O.
+For output:
+	println() = Prints the text and goes to the next line.
+	print() = Prints the text and remains on the same line.
+Command Line input:
+	import scala.io.StdIn
+		readLine()
+		readint()
+		readBoolean()
+		readChar()
+		readDouble()
+		readLong()
+		
+File I/O:
+Exception Handling:
+
+
+
