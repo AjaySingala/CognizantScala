@@ -594,5 +594,24 @@ Command Line input:
 File I/O:
 Exception Handling:
 
+Exercise for tomorrow:
+Scala CLI program:
+1. Shape
+2. Circle
+3. Ellipse
+4. Triangle
+5. Isoceles Triangle
+6. Rectangle
+7. Square
+0. Exit
+
+Select an option: 
+
+If user enter any other option, show a proper error message and re-display the menu.
+If the user selects 2, create an instance of a Circle class, and call a method on that instance. Then show the menu again.
+If the user selects 7, create an instance of a Square class, and call a method on that instance. Then show the menu again.
+If the user selects 1, show an error message that it cannot be done. Then show the menu again.
+If the user select 0, exit the program.
+
 
 
