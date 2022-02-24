@@ -23,6 +23,10 @@ object FileExceptionDemo {
             case e: IOException => println("ERROR! Some I/O Exception occurred...")
             case _ => println("Something went wrong. Please check and retry...")
         }
+        finally {
+            // close the file handle / db connection.
+            println("This will happen no matter what!!")
+        }
 
     }
 }

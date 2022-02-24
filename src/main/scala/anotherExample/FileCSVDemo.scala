@@ -14,6 +14,11 @@ object FileCSVDemo {
             println(s"${columns(0)} | ${columns(1)} | ${columns(2)} | ${columns(3)}")
         }
 
+        // for(line <- file.getLines()) {
+        //     val Array(month, income, expense, profit) = line.split(",")
+        //     println(s"${month} | ${income} | ${expense} | ${profit}")
+        // }
+
         file.close()
     }
 }

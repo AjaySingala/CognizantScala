@@ -613,5 +613,152 @@ If the user selects 7, create an instance of a Square class, and call a method o
 If the user selects 1, show an error message that it cannot be done. Then show the menu again.
 If the user select 0, exit the program.
 
+Day #4:
+Exception Handling:
+Diff b/w an Error and an Exception?
+Error is more about validations, checks etc.
+	For e.g.; Start date and an End Date. 
+	Password format.
+	Email format.
+	Mandatory fields.
+Exceptions: 
+	File not found.
+	DB not available.
+	Divide By Zero Exception
+	Run time exceptions (errors).
+If exceptions handled properly, then your application will end abruptly.
+It is always better to handle exceptions properly in your code using try-catch blocks.
+You can throw exceptions in code.
+
+Enter number 1: 10
+Enter number 2: 0
+
+no1 / no2
+
+if(no2 == 0) {
+	throw new DivideByZeroException
+}
+
+Create and throw custom exceptions.
+throw new InvalidPasswordFormatException
+
+def ValidatePwd(pwd: String) {
+	// check the format.
+	if(format is invalid) {
+		throw new InvalidPasswordFormatException
+	}
+}
+
+
+// main code.
+try {
+	// validate the password
+	ValidatePwd(password)
+}
+catch {
+	case e: InvalidPasswordFormatException => 
+}
+
+Pattern Matching (RegEx):
+findFirstIn
+
+"Scala is Scalable and quite cool."
+
+^: Matches the beginning of line. ^Scala
+$: Matches the end of line. Scala$
+. : means any character
+[...] match any single char in brackets
+[^...] match any single char not in brackets
+re? 0 or 1 occurance of the expression (re)
+re* 0 or more occurance of the expression (re)
+re+ 1 or more occurance of the expression (re)
+re{n} exactly n occurances of the expression (re)
+re{n,} n or more occurance of the expression (re)
+re{n,m} match at least n and at the most m occurance of the expression (re)
+a|b match either a or b
+[^0-9] anything that is not a digit 0-9
+[^A-Z] anything that is not A-Z
+[^a-z] anything that is not a-z
+[aeiou] match nay lower case vowel.
+
+Collections:
+A framework that provides data structures for collecting one or more values of a given type.
+Arrays, Lists, Maps, Sets.
+Higher-order ops: map, filter and reduce.
+Scala has both, mutable and immutable collections.
+
+The root (base) of all collections Iterable. "Traversable", which is the base class of Iterable.
+provides a common set of methods for iterating through the collection and also manipulating the data.
+
+Scala.collection.mutable
+Scala.collection.immmutable
+
+head: returns the first element of the collection.
+tail: all elements of the collection except the first.
+last: returns the last element.
+max: largest elem
+min: smallest elem
+size: no. of elems
+isEmpty: returns true or false
+sum: returns the sum of all elems
+toArray:
+toList:
+toSeq:
+toSet:
+
+Set:
+An immutable and unordered collection of unique elements.
+++ to merge 2 sets
++= to add a elem
+-= to remove an elem
+for()
+foreach()
+intersection
+union
+
+
+Use SortedSet to have elems in a sorted order.
+
+Seq:
+Seq is a trait which represents indexed sequences that are immutable.
+you can access elems in a Seq using their indexes.
+It maintains the insertion order of elems.
+You can have duplicate values.
+
+List:
+immutable.
+stored ordered elems that can be accessed using their indexes.
+class List extends LinearSeq {} 
+List extends the trait LinearSeq
+List can contain duplicates.
+Scala lists are very similar to arrays.
+All the elems have to be of the same type.
+++ to merge two lists.
+
+ListBuffer:
+import scala.collection.mutable.ListBuffer
+use either += or .append() to add elems to ListBuffer
+use -= to remove an elem.
+use .remove(n) to remove the nth elem.
+use .remove(n,m) to remove elem from nth position, and the next m elems including the nth.
+
+Maps:
+is an immutable key-value pair store.
+HashMap, Dictionary.
+
+1	"One"
+2	"Two"
+"red" "0xFf0000"
+
+flatMap()
+filter()
+
+Pattern matching with collections:
+
+Arrays:
+An array is a fixed-size, mutable, indexed collection.
+it is not officially a collection (in Scala) because it is not part of scala.collections package and it does not extend Iterable.
+Scala Array is actually a wrapper around the Java array type.
+
 
 
